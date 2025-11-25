@@ -1,0 +1,94 @@
+--
+-- PostgreSQL database dump
+--
+
+\restrict rK7QBeV5xe8RzV4BchoyCdNRQc1NVEhFv0CEKl8WjK3Y5a9UnmP9d5xtfFRZcpo
+
+-- Dumped from database version 15.14
+-- Dumped by pg_dump version 18.0
+
+-- Started on 2025-11-25 21:17:16
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 3316 (class 1262 OID 16595)
+-- Name: task8_db; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE task8_db WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'English_India.1252';
+
+
+ALTER DATABASE task8_db OWNER TO postgres;
+
+\unrestrict rK7QBeV5xe8RzV4BchoyCdNRQc1NVEhFv0CEKl8WjK3Y5a9UnmP9d5xtfFRZcpo
+\connect task8_db
+\restrict rK7QBeV5xe8RzV4BchoyCdNRQc1NVEhFv0CEKl8WjK3Y5a9UnmP9d5xtfFRZcpo
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 4 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO pg_database_owner;
+
+--
+-- TOC entry 3317 (class 0 OID 0)
+-- Dependencies: 4
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
+--
+-- TOC entry 214 (class 1255 OID 16596)
+-- Name: getemployeesbydepartment(text); Type: PROCEDURE; Schema: public; Owner: postgres
+--
+
+CREATE PROCEDURE public.getemployeesbydepartment(IN deptname text)
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+    SELECT name, department, salary
+    FROM employees
+    WHERE department = deptName;
+END;
+$$;
+
+
+ALTER PROCEDURE public.getemployeesbydepartment(IN deptname text) OWNER TO postgres;
+
+-- Completed on 2025-11-25 21:17:17
+
+--
+-- PostgreSQL database dump complete
+--
+
+\unrestrict rK7QBeV5xe8RzV4BchoyCdNRQc1NVEhFv0CEKl8WjK3Y5a9UnmP9d5xtfFRZcpo
+
